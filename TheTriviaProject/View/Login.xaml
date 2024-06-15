@@ -1,0 +1,101 @@
+﻿<Page x:Class="TheTriviaProject.View.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheTriviaProject.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="#FFF3E5F5"
+      Title="Login">
+    <Page.Resources>
+        <!-- Define a style for the rounded buttons -->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#7B1FA2" Offset="0"/>
+                        <GradientStop Color="#9C27B0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="15,5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#9C27B0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RoundedPasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#9C27B0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Login TriviaGame" FontSize="36" Grid.ColumnSpan="3" Margin="0,20,0,20" FontFamily="Bodoni MT Black" Foreground="#9C27B0" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock Text="Enter email" Margin="0,10,0,5" FontFamily="Bodoni MT Black" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBox x:Name="UserName" Width="300" Margin="0,0,0,20" Style="{StaticResource RoundedTextBoxStyle}" />
+
+            <TextBlock Text="Enter password" Margin="0,10,0,5" FontFamily="Bodoni MT Black" FontSize="24" HorizontalAlignment="Center"/>
+            <PasswordBox x:Name="Passwordclass" Width="300" Margin="0,0,0,20" Style="{StaticResource RoundedPasswordBoxStyle}"/>
+
+            <Button Content="Login" Click="LoginBtn_Click" Name="Loginclass" Margin="0,10,0,5" Style="{StaticResource RoundedButtonStyle}" Width="300"/>
+            <Button Content="Register" Click="SignUpBtn_Click" Margin="0,10,0,5" Style="{StaticResource RoundedButtonStyle}" Width="300"/>
+        </StackPanel>
+    </Grid>
+</Page>
